@@ -1,0 +1,6 @@
+{
+    "name":              "ziquid/taxonomy_tree",
+    "description":       "Load an entire vocabulary as an array tree.",
+    "type":              "drupal-module",
+    "homepage":          "https://github.com/ziquid/taxonomy_tree"
+}

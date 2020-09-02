@@ -29,6 +29,8 @@ class TaxonomyTermTree {
    *
    * @param string $vocabulary
    *   The name of the vocabulary to load.
+   * @param int $tid
+   *   The tid from which to start.  Defaults to 0 for all terms.
    *
    * @return array
    *   The array of taxonomy term objects.
@@ -36,8 +38,8 @@ class TaxonomyTermTree {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function load($vocabulary): array {
-    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vocabulary);
+  public function load($vocabulary, $tid = 0): array {
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadTree($vocabulary, $tid);
     $tree = [];
     foreach ($terms as $tree_object) {
       $this->buildTree($tree, $tree_object, $vocabulary);
